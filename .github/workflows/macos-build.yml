@@ -2,9 +2,9 @@ name: BeatMeat macOS build and validation
 on:
   workflow_dispatch:
   push:
-    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
+    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'script/**', 'Package.swift', 'BeatMeat.xcodeproj/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
   pull_request:
-    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
+    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'script/**', 'Package.swift', 'BeatMeat.xcodeproj/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
 permissions:
   contents: read
 jobs:

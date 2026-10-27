@@ -101,7 +101,7 @@ final class Studio: ObservableObject {
             try host?.replace(project,base: documentURL)
             if let host { BMSeek(host.kernel,oldBeat) }
             updateTransportWithoutHistory(); remember(); status = "Clip updated · audio engine refreshed"
-        } catch { project = committed; self.error = error.localizedDescription }
+        } catch { project = committed; selectedTrack = min(selectedTrack,max(0,project.tracks.count-1)); self.error = error.localizedDescription }
     }
     func undo() {
         guard !recording, let previous = past.popLast() else { return }
@@ -146,10 +146,8 @@ final class Studio: ObservableObject {
         do { try installAudio(url) } catch { self.error = error.localizedDescription }
     }
     private func installAudio(_ url: URL, start: Double? = nil) throws {
-        if !project.tracks.indices.contains(selectedTrack) || project.tracks[selectedTrack].kind != .audio {
-            guard project.tracks.count < 16 else { throw ProjectError.invalid }
-            project.tracks.append(BeatTrack(name: "Audio",kind: .audio,color: project.tracks.count%6)); selectedTrack = project.tracks.count-1
-        }
+        let needsTrack = !project.tracks.indices.contains(selectedTrack) || project.tracks[selectedTrack].kind != .audio
+        if needsTrack && project.tracks.count >= 16 { throw ProjectError.invalid }
         let decoded = try AudioHost.decode(url); let frames = Int(decoded.frameLength)
         guard let samples = decoded.floatChannelData?[0] else { throw ProjectError.invalid }
         var waveform = [Float](repeating: 0,count: 512)
@@ -158,6 +156,9 @@ final class Studio: ObservableObject {
             for j in low..<high { waveform[i] = max(waveform[i],abs(samples[j])) }
         }
         let length = Double(frames)/decoded.format.sampleRate*project.bpm/60
+        if needsTrack {
+            project.tracks.append(BeatTrack(name: "Audio",kind: .audio,color: project.tracks.count%6)); selectedTrack = project.tracks.count-1
+        }
         let clip = BeatClip(slot: selectedSlot,name: url.deletingPathExtension().lastPathComponent,startBeat: start ?? 0,lengthBeats: min(4096,max(0.0625,length)),loop: false,audioPath: url.path,waveform: waveform)
         project.tracks[selectedTrack].clips.removeAll {$0.slot == selectedSlot}; project.tracks[selectedTrack].clips.append(clip)
         rebuild()
