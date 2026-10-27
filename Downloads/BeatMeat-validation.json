@@ -1,0 +1,95 @@
+{
+  "build": {
+    "product": "BeatMeat by MP-Audio",
+    "version": "0.1.0-development",
+    "manual": {
+      "pdf_pages": 534,
+      "chapters": 32,
+      "all_extracted_text_reviewed": true,
+      "all_figures_pixel_reviewed": false,
+      "review_reports": 4,
+      "named_reference_entries_cataloged": 52,
+      "full_feature_parity": false
+    },
+    "portable_kernel": {
+      "status": "passed",
+      "scenarios": 22,
+      "command": "bash scripts/test-dsp.sh",
+      "warnings": "-Wall -Wextra -Werror",
+      "sanitizers": [
+        "AddressSanitizer",
+        "UndefinedBehaviorSanitizer"
+      ]
+    },
+    "swift_syntax": {
+      "status": "passed",
+      "files": 11,
+      "tool": "tree-sitter-swift",
+      "is_typecheck": false
+    },
+    "swift_xctests": {
+      "status": "passed",
+      "project_cases": 17,
+      "midi_cases": 9,
+      "total": 26
+    },
+    "macos_build": {
+      "status": "passed",
+      "architectures": [
+        "arm64",
+        "x86_64"
+      ],
+      "minimum_macos": "14.0",
+      "tested_commit": "a69ac23c7bf810eaf378c1fae9e0c4cd7c0817f9",
+      "workflow": "https://github.com/shaunroohi-alt/BeatMeat/actions/runs/40463701686"
+    },
+    "native_smoke_test": {
+      "status": "passed",
+      "project_save_open_overwrite": true,
+      "midi_roundtrip": true,
+      "non_silent_wav": true
+    },
+    "ui_runtime": {
+      "status": "passed",
+      "native_window_launched": true,
+      "screenshot_captured": true,
+      "screenshot_visually_reviewed": true,
+      "appearance": "DarkAqua",
+      "audio_graph_initialized": true,
+      "hardware_playback_tested": false
+    },
+    "recording_hardware": "not tested",
+    "signing": "ad-hoc signed and verified on macOS",
+    "notarization": "not performed",
+    "deployment": {
+      "status": "ZIP and DMG packaged; installation on user Mac not performed",
+      "release_url": "https://github.com/shaunroohi-alt/BeatMeat/releases/tag/v0.1.0-dev"
+    },
+    "github": {
+      "owner": "shaunroohi-alt",
+      "repository": "BeatMeat",
+      "authenticated_login": "sroohi",
+      "role": "write collaborator",
+      "upload": "uploaded to main"
+    }
+  },
+  "native_functional_test": {
+    "audioFrames": 264600,
+    "deviceRecordingTested": false,
+    "midiRoundTrip": true,
+    "offlineAudioExport": true,
+    "projectOverwrite": true,
+    "projectRoundTrip": true,
+    "status": "passed",
+    "uiInspected": false
+  },
+  "native_window_test": {
+    "appearance": "NSAppearanceNameDarkAqua",
+    "audioDevicePlaybackTested": false,
+    "audioGraphInitialized": true,
+    "height": 812,
+    "status": "passed",
+    "width": 1050,
+    "windowTitle": "BeatMeat by MP-Audio"
+  }
+}

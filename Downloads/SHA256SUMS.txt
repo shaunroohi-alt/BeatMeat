@@ -1,0 +1,3 @@
+3a5223583067e6ce38aaa6e46845a96dfe1d17dbf615c3aa670c85898aaa38d0  BeatMeat-macOS.dmg
+49aecc767c201982bf13f595b519b19a24c9c7e5deef7017812db572f5ef3dc7  BeatMeat-macOS.zip
+1aa86e0013d637ea5262698dbfa0f77ad52108cbdec955976f031e7199433e71  BeatMeat-validation.json
