@@ -59,7 +59,7 @@ final class Studio: ObservableObject {
     func play() {
         guard let host else { error = "Audio engine is unavailable."; return }
         do { try host.start(); playing.toggle(); updateTransportWithoutHistory() }
-        catch { error = error.localizedDescription; playing = false }
+        catch { self.error = error.localizedDescription; playing = false }
     }
     func stop() {
         if recording { endRecording() }
@@ -106,12 +106,12 @@ final class Studio: ObservableObject {
     func undo() {
         guard !recording, let previous = past.popLast() else { return }
         do { try host?.replace(previous,base: documentURL); future.append(project); project = previous; committed = previous; dirty = true; updateTransportWithoutHistory() }
-        catch { error = error.localizedDescription }
+        catch { self.error = error.localizedDescription }
     }
     func redo() {
         guard !recording, let next = future.popLast() else { return }
         do { try host?.replace(next,base: documentURL); past.append(project); project = next; committed = next; dirty = true; updateTransportWithoutHistory() }
-        catch { error = error.localizedDescription }
+        catch { self.error = error.localizedDescription }
     }
     private func updateTransportWithoutHistory() { if let host { BMTransport(host.kernel,project.bpm,playing ? 1 : 0,0,project.loopEnabled ? 1 : 0,project.loopStart,project.loopEnd,4) } }
     func addTrack(_ kind: TrackKind) {
@@ -203,7 +203,7 @@ final class Studio: ObservableObject {
         guard let url = host?.endRecording() else { recording = false; return }
         recording = false; selectedTrack = recordingTrack
         do { try installAudio(url,start: recordingBeat); status = "Recording added to track · save the project to collect its audio" }
-        catch { error = error.localizedDescription }
+        catch { self.error = error.localizedDescription }
     }
     func confirmClose() -> Bool { canDiscard() }
     private func canDiscard() -> Bool {
@@ -218,7 +218,7 @@ final class Studio: ObservableObject {
         guard canDiscard() else { return }; stop()
         let next = BeatProject(tracks: [BeatTrack(name: "Audio 1",kind: .audio),BeatTrack(name: "MIDI 1",kind: .midi,color: 1)])
         do { try host?.replace(next,base: nil); project = next; committed = next; documentURL = nil; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = [] }
-        catch { error = error.localizedDescription }
+        catch { self.error = error.localizedDescription }
     }
     func save() { _ = saveProject() }
     private func saveProject() -> Bool {
@@ -227,7 +227,7 @@ final class Studio: ObservableObject {
         if let existing = documentURL { url = existing }
         else { let panel = NSSavePanel(); panel.allowedContentTypes = [UTType(exportedAs: "com.mpaudio.beatmeat.project",conformingTo: .package)]; panel.nameFieldStringValue = project.name+".beatmeat"; panel.canCreateDirectories = true; guard panel.runModal() == .OK, let selected = panel.url else { return false }; url = selected }
         do { let saved = try ProjectIO.write(project,to: url,base: documentURL); project = saved; committed = saved; documentURL = url; dirty = false; past = []; future = []; status = "Saved · audio collected inside \(url.lastPathComponent)"; return true }
-        catch { error = error.localizedDescription; return false }
+        catch { self.error = error.localizedDescription; return false }
     }
     func open() {
         let panel = NSOpenPanel(); panel.canChooseDirectories = true; panel.canChooseFiles = true; panel.treatsFilePackagesAsDirectories = false
@@ -237,7 +237,7 @@ final class Studio: ObservableObject {
     func openURL(_ url: URL) {
         guard canDiscard() else { return }
         do { let loaded = try ProjectIO.read(url); try host?.replace(loaded,base: url); project = loaded; committed = loaded; documentURL = url; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = []; playing = false; beat = 0; status = "Opened \(loaded.name)" }
-        catch { error = error.localizedDescription }
+        catch { self.error = error.localizedDescription }
     }
     func exportWAV() {
         let panel = NSSavePanel(); panel.nameFieldStringValue = project.name+".wav"; panel.allowedContentTypes = [.wav]
