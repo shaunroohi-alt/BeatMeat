@@ -19,7 +19,7 @@ enum UIValidation {
                 guard let png = bitmap.representation(using: .png,properties: [:]) else { throw ProjectError.invalid }
                 try FileManager.default.createDirectory(at: directory,withIntermediateDirectories: true)
                 try png.write(to: directory.appendingPathComponent("workspace.png"))
-                let result: [String:Any] = ["status":"passed","windowTitle":window.title,"width":view.bounds.width,"height":view.bounds.height,"audioGraphInitialized":true,"audioDevicePlaybackTested":false]
+                let result: [String:Any] = ["status":"passed","windowTitle":window.title,"width":view.bounds.width,"height":view.bounds.height,"appearance":view.effectiveAppearance.name.rawValue,"audioGraphInitialized":true,"audioDevicePlaybackTested":false]
                 try JSONSerialization.data(withJSONObject: result,options: [.prettyPrinted,.sortedKeys]).write(to: directory.appendingPathComponent("ui-validation.json"))
                 exit(0)
             } catch {

@@ -25,7 +25,7 @@ struct BeatMeatApp: App {
     }
     var body: some Scene {
         WindowGroup("BeatMeat by MP-Audio") {
-            WorkspaceView().environmentObject(studio)
+            WorkspaceView().environmentObject(studio).preferredColorScheme(.dark)
                 .frame(minWidth: 1050,minHeight: 780)
                 .onAppear { delegate.studio = studio; NSApp.activate(ignoringOtherApps: true); UIValidation.run(startupError: studio.error) }
                 .onOpenURL { studio.openURL($0) }

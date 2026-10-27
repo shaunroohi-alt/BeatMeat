@@ -161,8 +161,7 @@ struct WorkspaceView: View {
             Picker("Workspace", selection: $studio.mode) {
                 Text("SESSION").tag(WorkspaceMode.session)
                 Text("ARRANGEMENT").tag(WorkspaceMode.arrangement)
-            }.pickerStyle(.segmented).frame(width: 245)
-                .onChange(of: studio.mode) { _, _ in studio.updateTransport() }
+            }.pickerStyle(.segmented).labelsHidden().frame(width: 245)
             Spacer()
             if studio.mode == .session {
                 Text("CLIP LAUNCH • BAR QUANTIZED").font(.system(size: 8, weight: .medium)).tracking(1)
