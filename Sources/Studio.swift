@@ -17,7 +17,18 @@ final class Studio: ObservableObject {
     @Published var activeSlots = Array(repeating: -1,count: 16)
     @Published var status = "Ready · play the included MIDI sketch or import audio"
     @Published var error: String?
-    @Published var master: Double = 0.8 { didSet { host?.setMaster(master) } }
+    var master: Double {
+        get { project.master }
+        set {
+            guard newValue.isFinite, (0...1).contains(newValue) else {
+                error = "Master volume must be between 0 and 1."; return
+            }
+            guard newValue != project.master else { return }
+            project.master = newValue
+            host?.setMaster(newValue)
+            remember()
+        }
+    }
     private var host: AudioHost?
     private var documentURL: URL?
     private var timer: AnyCancellable?
@@ -113,7 +124,7 @@ final class Studio: ObservableObject {
         do { try host?.replace(next,base: documentURL); past.append(project); project = next; committed = next; dirty = true; updateTransportWithoutHistory() }
         catch { self.error = error.localizedDescription }
     }
-    private func updateTransportWithoutHistory() { if let host { BMTransport(host.kernel,project.bpm,playing ? 1 : 0,0,project.loopEnabled ? 1 : 0,project.loopStart,project.loopEnd,4) } }
+    private func updateTransportWithoutHistory() { if let host { host.setMaster(project.master); BMTransport(host.kernel,project.bpm,playing ? 1 : 0,0,project.loopEnabled ? 1 : 0,project.loopStart,project.loopEnd,4) } }
     func addTrack(_ kind: TrackKind) {
         guard project.tracks.count < 16 else { error = "This build supports up to 16 tracks."; return }
         project.tracks.append(BeatTrack(name: "\(project.tracks.count+1) · \(kind.rawValue.capitalized)",kind: kind,color: project.tracks.count%6))
@@ -217,7 +228,7 @@ final class Studio: ObservableObject {
     func newProject() {
         guard canDiscard() else { return }; stop()
         let next = BeatProject(tracks: [BeatTrack(name: "Audio 1",kind: .audio),BeatTrack(name: "MIDI 1",kind: .midi,color: 1)])
-        do { try host?.replace(next,base: nil); project = next; committed = next; documentURL = nil; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = [] }
+        do { try host?.replace(next,base: nil); project = next; committed = next; host?.setMaster(next.master); documentURL = nil; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = [] }
         catch { self.error = error.localizedDescription }
     }
     func save() { _ = saveProject() }
@@ -236,13 +247,14 @@ final class Studio: ObservableObject {
     }
     func openURL(_ url: URL) {
         guard canDiscard() else { return }
-        do { let loaded = try ProjectIO.read(url); try host?.replace(loaded,base: url); project = loaded; committed = loaded; documentURL = url; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = []; playing = false; beat = 0; status = "Opened \(loaded.name)" }
+        do { let loaded = try ProjectIO.read(url); try host?.replace(loaded,base: url); project = loaded; committed = loaded; host?.setMaster(loaded.master); documentURL = url; selectedTrack = 0; selectedSlot = 0; dirty = false; past = []; future = []; playing = false; beat = 0; status = "Opened \(loaded.name)" }
         catch { self.error = error.localizedDescription }
     }
     func exportWAV() {
         let panel = NSSavePanel(); panel.nameFieldStringValue = project.name+".wav"; panel.allowedContentTypes = [.wav]
         guard panel.runModal() == .OK, let url = panel.url else { return }
-        let snapshot = project, base = documentURL, gain = master
+        let snapshot = project, base = documentURL
+        let gain = snapshot.master
         status = "Rendering Arrangement…"
         Task {
             do { try await Task.detached { try AudioHost.export(snapshot,base: base,to: url,master: gain) }.value; status = "Exported 44.1 kHz float WAV · \(url.lastPathComponent)" }

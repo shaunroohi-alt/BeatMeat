@@ -27,7 +27,7 @@ struct BeatMeatApp: App {
         WindowGroup("BeatMeat by MP-Audio") {
             WorkspaceView().environmentObject(studio)
                 .frame(minWidth: 1050,minHeight: 780)
-                .onAppear { delegate.studio = studio; NSApp.activate(ignoringOtherApps: true) }
+                .onAppear { delegate.studio = studio; NSApp.activate(ignoringOtherApps: true); UIValidation.run(startupError: studio.error) }
                 .onOpenURL { studio.openURL($0) }
                 .alert("BeatMeat",isPresented: Binding(get: {studio.error != nil},set: {if !$0 {studio.error = nil}})) {
                     Button("OK") {studio.error = nil}

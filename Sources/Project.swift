@@ -38,6 +38,7 @@ struct BeatProject: Codable, Sendable {
     var version = 1
     var name = "Untitled"
     var bpm: Double = 120
+    var master: Double = 0.8
     var loopEnabled = true
     var loopStart: Double = 0
     var loopEnd: Double = 16
@@ -52,7 +53,7 @@ struct BeatProject: Codable, Sendable {
             BeatTrack(name: "04 · Texture", kind: .audio, color: 3)])
     }
     func validate() throws {
-        guard version == 1, !tracks.isEmpty, bpm.isFinite, (20...300).contains(bpm), loopStart.isFinite, loopEnd.isFinite,
+        guard version == 1, !tracks.isEmpty, master.isFinite, (0...1).contains(master), bpm.isFinite, (20...300).contains(bpm), loopStart.isFinite, loopEnd.isFinite,
               loopStart >= 0, loopEnd > loopStart, loopEnd <= 100_000, tracks.count <= 16, Set(tracks.map(\.id)).count == tracks.count else { throw ProjectError.invalid }
         for track in tracks {
             guard track.gain.isFinite, (0...2).contains(track.gain), track.pan.isFinite, (-1...1).contains(track.pan),
@@ -70,6 +71,26 @@ struct BeatProject: Codable, Sendable {
         }
     }
 }
+
+// Keep version-1 projects written before master persistence readable. Defining
+// decoding in an extension preserves the struct's memberwise initializer.
+extension BeatProject {
+    private enum CodingKeys: String, CodingKey {
+        case version, name, bpm, master, loopEnabled, loopStart, loopEnd, tracks
+    }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        version = try values.decode(Int.self, forKey: .version)
+        name = try values.decode(String.self, forKey: .name)
+        bpm = try values.decode(Double.self, forKey: .bpm)
+        master = try values.decodeIfPresent(Double.self, forKey: .master) ?? 0.8
+        loopEnabled = try values.decode(Bool.self, forKey: .loopEnabled)
+        loopStart = try values.decode(Double.self, forKey: .loopStart)
+        loopEnd = try values.decode(Double.self, forKey: .loopEnd)
+        tracks = try values.decode([BeatTrack].self, forKey: .tracks)
+    }
+}
+
 enum ProjectError: LocalizedError {
     case invalid, unsafeMedia, audioLimit, allocation
     var errorDescription: String? {

@@ -54,6 +54,7 @@ final class ProjectTests: XCTestCase {
         try fixture().validate()
         var project = fixture()
         project.bpm = 20
+        project.master = 0
         project.loopStart = 0
         project.loopEnd = 100_000
         project.tracks[0].gain = 0
@@ -65,6 +66,7 @@ final class ProjectTests: XCTestCase {
         project.tracks[0].clips[0].notes[0].velocity = 0
         try project.validate()
         project.bpm = 300
+        project.master = 1
         project.tracks[0].gain = 2
         project.tracks[0].pan = 1
         project.tracks[0].send = 1
@@ -90,6 +92,9 @@ final class ProjectTests: XCTestCase {
     }
 
     func testRejectsNonfiniteAndOutOfRangeMixerValues() {
+        for value in [Double.nan, .infinity, -.infinity, -0.01, 1.01] {
+            assertInvalid { $0.master = value }
+        }
         for value in [Double.nan, .infinity, -.infinity, -0.01, 2.01] {
             assertInvalid { $0.tracks[0].gain = value }
         }
@@ -154,6 +159,23 @@ final class ProjectTests: XCTestCase {
         assertInvalid { $0.tracks[2].clips[0].waveform = [.infinity] }
     }
 
+    func testMissingLegacyMasterDefaultsWithoutChangingOtherState() throws {
+        XCTAssertEqual(BeatProject.demo().master, 0.8)
+        let root = try temporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: root) }
+        var project = fixture()
+        project.master = 0.31
+        project.bpm = 97
+        let encoded = try JSONEncoder().encode(project)
+        var metadata = try XCTUnwrap(JSONSerialization.jsonObject(with: encoded) as? [String: Any])
+        metadata.removeValue(forKey: "master")
+        try JSONSerialization.data(withJSONObject: metadata).write(to: root.appendingPathComponent("Project.json"))
+        let restored = try ProjectIO.read(root)
+        XCTAssertEqual(restored.master, 0.8)
+        XCTAssertEqual(restored.bpm, 97)
+        XCTAssertEqual(restored.tracks.map(\.id), project.tracks.map(\.id))
+    }
+
     func testUnsupportedSchemaVersionRejectedByValidationAndRead() throws {
         assertInvalid { $0.version = 0 }
         assertInvalid { $0.version = 2 }
@@ -194,6 +216,7 @@ final class ProjectTests: XCTestCase {
         try bytes.write(to: imported)
         var project = fixture()
         project.bpm = 137.5
+        project.master = 0.37
         project.loopEnabled = false
         project.tracks[2].clips[0].audioPath = imported.path
         project.tracks[2].clips[0].startBeat = 8
@@ -209,6 +232,7 @@ final class ProjectTests: XCTestCase {
         let opened = try ProjectIO.read(package)
         XCTAssertEqual(opened.name, project.name)
         XCTAssertEqual(opened.bpm, 137.5)
+        XCTAssertEqual(opened.master, 0.37)
         XCTAssertFalse(opened.loopEnabled)
         XCTAssertEqual(opened.tracks.map(\.id), project.tracks.map(\.id))
         XCTAssertEqual(opened.tracks[0].clips[0].notes.map(\.id), project.tracks[0].clips[0].notes.map(\.id))
@@ -233,11 +257,13 @@ final class ProjectTests: XCTestCase {
         try FileManager.default.removeItem(at: source)
         saved.name = "Edited song"
         saved.bpm = 98
+        saved.master = 0.24
         saved.tracks[0].pan = 0.6
         saved = try ProjectIO.write(saved, to: package, base: package)
         let reopened = try ProjectIO.read(package)
         XCTAssertEqual(reopened.name, "Edited song")
         XCTAssertEqual(reopened.bpm, 98)
+        XCTAssertEqual(reopened.master, 0.24)
         XCTAssertEqual(reopened.tracks[0].pan, 0.6)
         XCTAssertEqual(reopened.tracks[2].clips[0].audioPath, originalRelative)
         XCTAssertEqual(try Data(contentsOf: ProjectIO.mediaURL(originalRelative, base: package)), bytes)
@@ -247,6 +273,7 @@ final class ProjectTests: XCTestCase {
         try FileManager.default.removeItem(at: package)
         let reopenedCopy = try ProjectIO.read(movedPackage)
         XCTAssertEqual(reopenedCopy.name, "Edited song")
+        XCTAssertEqual(reopenedCopy.master, 0.24)
         XCTAssertEqual(copied.tracks[2].clips[0].audioPath, originalRelative)
         XCTAssertEqual(try Data(contentsOf: ProjectIO.mediaURL(originalRelative, base: movedPackage)), bytes)
     }

@@ -6,6 +6,7 @@ bash scripts/build.sh
 bash scripts/test-dsp.sh
 swift test
 bash scripts/smoke-test.sh
+bash scripts/ui-smoke-test.sh
 app="$root/.build/DerivedData/Build/Products/${BUILD_CONFIGURATION:-Release}/BeatMeat.app"
 lipo "$app/Contents/MacOS/BeatMeat" -verify_arch arm64 x86_64
 stage=$(mktemp -d "$root/.build/package.XXXXXX")

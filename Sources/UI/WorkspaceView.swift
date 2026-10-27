@@ -201,7 +201,7 @@ struct WorkspaceView: View {
                     VStack(spacing: 5) {
                         Text("MASTER").font(.system(size: 8, weight: .bold)).foregroundStyle(MeatPalette.muted)
                         Slider(value: $studio.master, in: 0...1).tint(MeatPalette.teal)
-                            .onChange(of: studio.master) { _, _ in studio.updateTransport() }
+
                         Text(gainText(studio.master)).font(.system(size: 9, design: .monospaced))
                     }.padding(10).padding(.top, 10)
                 }.frame(width: 84).padding(.trailing, 8).background(MeatPalette.panel.opacity(0.45))
