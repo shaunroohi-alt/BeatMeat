@@ -1,6 +1,7 @@
 {
   "status": "passed",
   "typecheck": false,
+  "native_compilation_evidence": "https://github.com/shaunroohi-alt/BeatMeat/actions/runs/40463701686",
   "files": [
     {
       "path": "Package.swift",
@@ -9,7 +10,7 @@
     },
     {
       "path": "Sources/App.swift",
-      "sha256": "6df63811e48c9d43e75c6560b563b8a8705873e68d76078a50d90213844c07cc",
+      "sha256": "28b4100c572730116dbe144595778370975d7ab158a98d51c50fd2de2328acd7",
       "passed": true
     },
     {
@@ -24,7 +25,7 @@
     },
     {
       "path": "Sources/Project.swift",
-      "sha256": "02d42a61afdbd3861762c5bca889d6da9a02b43709e816ebf2f4ce5abc02ff42",
+      "sha256": "3a047aea0784d912936cd45132b720c099c08a0e18c8282078bf0fe3d3664464",
       "passed": true
     },
     {
@@ -34,12 +35,17 @@
     },
     {
       "path": "Sources/Studio.swift",
-      "sha256": "dfa60a5e461e4def7b204889e00cc0499f9e31fc32472ca5f76c3151fb83130e",
+      "sha256": "3f954dabb2dfe6831ab6a8dc426ca10db31128f96618e45d3d15fb01d8cf94a8",
       "passed": true
     },
     {
       "path": "Sources/UI/WorkspaceView.swift",
-      "sha256": "e79f6397acb90c9f182b25542e440d65c2147cfd1b6ebf8cbd5f143a1686abb8",
+      "sha256": "4720dfed8d7069de4612ed638d0d300cc96f6d6be7d6c4753988c9718ccdfd5b",
+      "passed": true
+    },
+    {
+      "path": "Sources/UIValidation.swift",
+      "sha256": "95d918a48db7e0c3cf7c4c739ae26aa913bb36e254fb4287937bdb2b54cb290c",
       "passed": true
     },
     {
@@ -49,7 +55,7 @@
     },
     {
       "path": "Tests/ProjectTests.swift",
-      "sha256": "b321fd53e9469375e5c775735dd384f0b6bf39b55181be41f2e745c80ffc642f",
+      "sha256": "7fb295b312a4c03809aa7c9e4e0ac1449e8e956eec99ce46b3f6562e2c0f594d",
       "passed": true
     }
   ]

@@ -22,33 +22,53 @@
   },
   "swift_syntax": {
     "status": "passed",
-    "files": 10,
+    "files": 11,
     "tool": "tree-sitter-swift",
     "is_typecheck": false
   },
   "swift_xctests": {
-    "status": "not run",
-    "project_cases": 16,
+    "status": "passed",
+    "project_cases": 17,
     "midi_cases": 9,
-    "reason": "Swift toolchain unavailable in Linux workspace"
+    "total": 26
   },
-  "macos_build": "not run: no Mac/Apple SDK attached; current GitHub account jobs have billing/spending blockers",
-  "native_smoke_test": "not run",
-  "ui_runtime": "not run",
-  "recording_hardware": "not run",
-  "signing": "not performed",
-  "notarization": "not configured",
-  "deployment": "not performed",
+  "macos_build": {
+    "status": "passed",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "minimum_macos": "14.0",
+    "tested_commit": "a69ac23c7bf810eaf378c1fae9e0c4cd7c0817f9",
+    "workflow": "https://github.com/shaunroohi-alt/BeatMeat/actions/runs/40463701686"
+  },
+  "native_smoke_test": {
+    "status": "passed",
+    "project_save_open_overwrite": true,
+    "midi_roundtrip": true,
+    "non_silent_wav": true
+  },
+  "ui_runtime": {
+    "status": "passed",
+    "native_window_launched": true,
+    "screenshot_captured": true,
+    "screenshot_visually_reviewed": true,
+    "appearance": "DarkAqua",
+    "audio_graph_initialized": true,
+    "hardware_playback_tested": false
+  },
+  "recording_hardware": "not tested",
+  "signing": "ad-hoc signed and verified on macOS",
+  "notarization": "not performed",
+  "deployment": {
+    "status": "ZIP and DMG packaged; installation on user Mac not performed",
+    "release_url": "https://github.com/shaunroohi-alt/BeatMeat/releases/tag/v0.1.0-dev"
+  },
   "github": {
-    "requested_owner": "shaunroohi-alt",
-    "requested_repository": "BeatMeat",
+    "owner": "shaunroohi-alt",
+    "repository": "BeatMeat",
     "authenticated_login": "sroohi",
-    "switch_result": "not logged in to github.com account shaunroohi-alt",
-    "upload": "not performed",
-    "alternate_account_billing": "unknown"
-  },
-  "prior_account_runner_blocker": {
-    "run": "https://github.com/sroohi/FLX/actions/runs/40449821523",
-    "annotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased."
+    "role": "write collaborator",
+    "upload": "uploaded to main"
   }
 }

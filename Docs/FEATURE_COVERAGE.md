@@ -1,8 +1,10 @@
 # Reference coverage and implementation status
 
-The supplied manual is Ableton Live 8.0.2, May2009, 534 PDF pages. Every page's extracted text was reviewed across four consecutive reports; selected figures were rendered and inspected. The original PDF is retained in this source package. Review is not feature parity. The device catalog identifies52 named devices/instruments/library entries; none is claimed as an exact implementation.
+The supplied manual is Ableton Live 8.0.2, May2009, 534 PDF pages. Every page's extracted text was reviewed across four consecutive reports; selected figures were rendered and inspected. The original PDF is retained in this source package. Review is not feature parity. The device catalog identifies 52 named devices/instruments/library entries; none is claimed as an exact implementation.
 
-**This delivery is original development source, not a built, installed, or validated macOS DAW.** Portable kernel tests passed. Swift syntax parsing passed; Swift type checking, macOS linking, AppKit/SwiftUI runtime, recording hardware and the native smoke tests remain unverified because no Mac is attached and GitHub jobs are blocked by account billing. The application implements the source-level subset below, not the entire manual.
+**This is an original macOS development preview, not a complete implementation of the manual.** The [macOS validation run](https://github.com/shaunroohi-alt/BeatMeat/actions/runs/40463701686) passed for implementation commit `a69ac23c7bf810eaf378c1fae9e0c4cd7c0817f9`: universal build/type checking/linking, 22 DSP scenarios, 26 Swift persistence/MIDI tests, native project/MIDI/WAV smoke checks, native window/screenshot and audio-graph initialization, architecture verification, ad-hoc signing, and ZIP/DMG packaging. The [v0.1.0-dev release](https://github.com/shaunroohi-alt/BeatMeat/releases/tag/v0.1.0-dev) provides the preview packages.
+
+Physical microphone recording, hardware latency, audible output on a user's device, sustained real-time performance and notarization remain unverified. The table below records the implemented subset and all outstanding reference features; a passing build does not establish feature parity.
 
 | Ch | Topic | BeatMeat source behavior and remaining work |
 |---|---|---|
@@ -19,14 +21,14 @@ The supplied manual is Ableton Live 8.0.2, May2009, 534 PDF pages. Every page's 
 |11|Grooves|Not implemented: groove extraction/pool/timing/velocity/humanization|
 |12|Launch modes|Next-bar4-beat clip/scene launch; no Trigger/Gate/Toggle/Repeat options, follow actions or legato launch|
 |13|Routing|Stereo master, pertrack gain/pan/mute/solo, shared delay send, microphone recording into an armed audio track; no arbitrary bus graph, input monitoring, sidechain routing, multichannel outputs, cue bus or CoreMIDI I/O|
-|14|Mixer|Track controls, pre-output track meters, lowpass, delay send, live master volume; no groups/returns editor, crossfader, calibrated loudness metering, device compensation or MIDI mappings|
+|14|Mixer|Track controls, pre-output track meters, lowpass, delay send, persisted master volume; no groups/returns editor, crossfader, calibrated loudness metering, device compensation or MIDI mappings|
 |15|Recording|Mic permission and AVAudioEngine capture to temporary CAF, converted into an audio clip on stop; not device-tested; no overdub/punch/preroll/count-in, diskstreaming recorder or Arrangement performance capture|
 |16|Devices/plugins|Original sine synth, gain/pan, lowpass and delay; no reorderable chain, AU/VST host, plugin editor, parameter automation or delay compensation|
 |17|Racks|Not implemented: instrument/drum/effect racks, zones, macros, parallel chains|
 |18|Automation|Undo/redo snapshots for project edits; no recorded/read/edited automation or takeover handling|
 |19|Clip envelopes|Not implemented: linked/unlinked envelopes, modulation and independent envelope loops|
 |20|Video|Not implemented|
-|21|Audio effects|Original lowpass and shared quarter-note delay only; no claim of parity with any of31 named reference devices; emergency output hardclip is not a transparent master limiter|
+|21|Audio effects|Original lowpass and shared quarter-note delay only; no claim of parity with any of 31 named reference devices; emergency output hardclip is not a transparent master limiter|
 |22|MIDI effects|Not implemented: seven reference MIDI device algorithms|
 |23|Instruments/libraries|Original polyphonic sine-note renderer; no sampled factory library, modeled instruments, Operator/Sampler/Simpler/Tension/DrumRack or proprietary sound content|
 |24|Max for Live|Not implemented; no Max runtime or patch compatibility|
@@ -49,7 +51,7 @@ The supplied manual is Ableton Live 8.0.2, May2009, 534 PDF pages. Every page's 
 - Recording uses a mono/stereo system input tap and AVAudioFile writer. There is no explicit audio device selector or low-latency disk scheduler. Disk failures are logged; hardware behavior remains untested.
 - WAV export is44.1kHz stereo Float32, Arrangement-only, with a tempo-derived effect tail. No dither, normalization, sample-rate chooser, cue-monitor export or full mastering path.
 - Structural editing is not seamless during playback. Recording blocks structural changes. Recording must be stopped and the project saved to collect its temporary audio.
-- Swift persistence/MIDI XCTest cases are supplied but unrun; native smoke tests exercise save/open/overwrite, MIDI roundtrip and audible offline WAV export only when run on a Mac. No UI screenshot or device test has passed yet.
-- Build/package scripts support ad-hoc local development signing. Developer ID signing and notarization are not configured or verified.
+- All 26 Swift persistence/MIDI XCTest cases passed on the macOS runner. Native smoke checks passed for save/open/overwrite, MIDI roundtrip and non-silent offline WAV export. A native window screenshot and audio-graph initialization check also passed. These checks do not replace interactive workflow, physical recording or audio-device performance tests.
+- The universal preview bundles passed ad-hoc signing verification and ZIP/DMG packaging. Developer ID signing and Apple notarization are not configured or verified.
 
 The reference manual documents observable product behavior, not enough information to reconstruct all proprietary algorithms or missing content. The review reports and device catalog are the complete reference roadmap for further implementation.
