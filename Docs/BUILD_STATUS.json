@@ -1,0 +1,54 @@
+{
+  "product": "BeatMeat by MP-Audio",
+  "version": "0.1.0-development",
+  "manual": {
+    "pdf_pages": 534,
+    "chapters": 32,
+    "all_extracted_text_reviewed": true,
+    "all_figures_pixel_reviewed": false,
+    "review_reports": 4,
+    "named_reference_entries_cataloged": 52,
+    "full_feature_parity": false
+  },
+  "portable_kernel": {
+    "status": "passed",
+    "scenarios": 22,
+    "command": "bash scripts/test-dsp.sh",
+    "warnings": "-Wall -Wextra -Werror",
+    "sanitizers": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer"
+    ]
+  },
+  "swift_syntax": {
+    "status": "passed",
+    "files": 10,
+    "tool": "tree-sitter-swift",
+    "is_typecheck": false
+  },
+  "swift_xctests": {
+    "status": "not run",
+    "project_cases": 16,
+    "midi_cases": 9,
+    "reason": "Swift toolchain unavailable in Linux workspace"
+  },
+  "macos_build": "not run: no Mac/Apple SDK attached; current GitHub account jobs have billing/spending blockers",
+  "native_smoke_test": "not run",
+  "ui_runtime": "not run",
+  "recording_hardware": "not run",
+  "signing": "not performed",
+  "notarization": "not configured",
+  "deployment": "not performed",
+  "github": {
+    "requested_owner": "shaunroohi-alt",
+    "requested_repository": "BeatMeat",
+    "authenticated_login": "sroohi",
+    "switch_result": "not logged in to github.com account shaunroohi-alt",
+    "upload": "not performed",
+    "alternate_account_billing": "unknown"
+  },
+  "prior_account_runner_blocker": {
+    "run": "https://github.com/sroohi/FLX/actions/runs/40449821523",
+    "annotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased."
+  }
+}

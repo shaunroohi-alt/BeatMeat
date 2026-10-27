@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "typecheck": false,
+  "files": [
+    {
+      "path": "Package.swift",
+      "sha256": "742dfd7ef545c275e0e56206ca32bbaec632f1f144897f78bbc0c057738d0b78",
+      "passed": true
+    },
+    {
+      "path": "Sources/App.swift",
+      "sha256": "6df63811e48c9d43e75c6560b563b8a8705873e68d76078a50d90213844c07cc",
+      "passed": true
+    },
+    {
+      "path": "Sources/Audio/AudioHost.swift",
+      "sha256": "1e8129f51d356e14f55c5e7f75762a1e6e8a7db99e4f91a4ccc37d29a20a46a3",
+      "passed": true
+    },
+    {
+      "path": "Sources/MIDIFile.swift",
+      "sha256": "44d0469c9334e66bfc61bba373d0f10b0d28c2359d70444136a24d5bf4b8514f",
+      "passed": true
+    },
+    {
+      "path": "Sources/Project.swift",
+      "sha256": "02d42a61afdbd3861762c5bca889d6da9a02b43709e816ebf2f4ce5abc02ff42",
+      "passed": true
+    },
+    {
+      "path": "Sources/SelfTest.swift",
+      "sha256": "84939ae3b4f7aa8017c6420b69d28129310e05023f3e3939a4955d238a2042a1",
+      "passed": true
+    },
+    {
+      "path": "Sources/Studio.swift",
+      "sha256": "1077243d89c20154fba2db7ee6ce196e993846dac7951d5f6680d732aeb2fe4a",
+      "passed": true
+    },
+    {
+      "path": "Sources/UI/WorkspaceView.swift",
+      "sha256": "e79f6397acb90c9f182b25542e440d65c2147cfd1b6ebf8cbd5f143a1686abb8",
+      "passed": true
+    },
+    {
+      "path": "Tests/MIDIFileTests.swift",
+      "sha256": "a7ece3057c4c9d7e1e2ad452620956934c94b9c93e6a82c65fa1bfc1fb7e2ef6",
+      "passed": true
+    },
+    {
+      "path": "Tests/ProjectTests.swift",
+      "sha256": "b321fd53e9469375e5c775735dd384f0b6bf39b55181be41f2e745c80ffc642f",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1; classes = {}; objectVersion = 56;
+ objects = {
+  A9352D1583CC054EE80CC95A = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/App.swift"; sourceTree = "<group>"; };
+  1ED472654314EF52D8BAA0B2 = { isa = PBXBuildFile; fileRef = A9352D1583CC054EE80CC95A; };
+  59BE9C998EA85EDAA823CB5E = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Audio/AudioHost.swift"; sourceTree = "<group>"; };
+  7D09F1C05ADBB5DE2FB4BE6C = { isa = PBXBuildFile; fileRef = 59BE9C998EA85EDAA823CB5E; };
+  A55F7A29BB146CB027092AC7 = { isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Sources/Audio/BeatKernel.cpp"; sourceTree = "<group>"; };
+  5039D3FA9DA21006FC1A32B9 = { isa = PBXBuildFile; fileRef = A55F7A29BB146CB027092AC7; };
+  2D3A4C1BE39FF0F847A02313 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/MIDIFile.swift"; sourceTree = "<group>"; };
+  37D812121F60441E655D5ACA = { isa = PBXBuildFile; fileRef = 2D3A4C1BE39FF0F847A02313; };
+  837CF5DA554F4903983F14E4 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Project.swift"; sourceTree = "<group>"; };
+  A0D086EDE68A4B8C0CA01FF4 = { isa = PBXBuildFile; fileRef = 837CF5DA554F4903983F14E4; };
+  D15A687414AB35F9D59B2477 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/SelfTest.swift"; sourceTree = "<group>"; };
+  967D674B96E07146083429FA = { isa = PBXBuildFile; fileRef = D15A687414AB35F9D59B2477; };
+  D75C6B2CE070F083DF618F68 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/Studio.swift"; sourceTree = "<group>"; };
+  79ACDFA1A98A7A557C70768D = { isa = PBXBuildFile; fileRef = D75C6B2CE070F083DF618F68; };
+  CBB1E0D4FF3E1462DC6E0F9F = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/UI/WorkspaceView.swift"; sourceTree = "<group>"; };
+  FB11F1FE9C9DBE729C3F1E69 = { isa = PBXBuildFile; fileRef = CBB1E0D4FF3E1462DC6E0F9F; };
+  22E17ABE9B58461828DD5943 = { isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sources/Audio/BeatKernel.h"; sourceTree = "<group>"; };
+  A40F15553224B7A78A5554B2 = { isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sources/BeatMeat-Bridging-Header.h"; sourceTree = "<group>"; };
+  4833E4662D8648BB3ADC4B24 = { isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources/AppIcon.png"; sourceTree = "<group>"; };
+  31191992DEE071972C091FB2 = { isa = PBXBuildFile; fileRef = 4833E4662D8648BB3ADC4B24; };
+  E47BE0B706BC22F45DE0160C = { isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+  3B8906B5B6BE212227E479E2 = { isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatMeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+  A4878AF32A9B10A5CA2D15E1 = { isa = PBXGroup; children = (3B8906B5B6BE212227E479E2,); name = Products; sourceTree = "<group>"; };
+  48A9EBDE4E429B0C80354279 = { isa = PBXGroup; children = (A9352D1583CC054EE80CC95A, 59BE9C998EA85EDAA823CB5E, A55F7A29BB146CB027092AC7, 2D3A4C1BE39FF0F847A02313, 837CF5DA554F4903983F14E4, D15A687414AB35F9D59B2477, D75C6B2CE070F083DF618F68, CBB1E0D4FF3E1462DC6E0F9F, 22E17ABE9B58461828DD5943, A40F15553224B7A78A5554B2, 4833E4662D8648BB3ADC4B24, E47BE0B706BC22F45DE0160C, A4878AF32A9B10A5CA2D15E1,); sourceTree = "<group>"; };
+  80E722596D977BF51841CACB = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (1ED472654314EF52D8BAA0B2, 7D09F1C05ADBB5DE2FB4BE6C, 5039D3FA9DA21006FC1A32B9, 37D812121F60441E655D5ACA, A0D086EDE68A4B8C0CA01FF4, 967D674B96E07146083429FA, 79ACDFA1A98A7A557C70768D, FB11F1FE9C9DBE729C3F1E69,); runOnlyForDeploymentPostprocessing = 0; };
+  B67EA722C09AFCE013BCA097 = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (31191992DEE071972C091FB2,); runOnlyForDeploymentPostprocessing = 0; };
+  800AEA107DFD24EC19D54F1E = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+  9B625CEA3F909C06FABDAEF6 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; CLANG_ENABLE_OBJC_ARC = "YES"; CLANG_CXX_LANGUAGE_STANDARD = "c++17"; CLANG_CXX_LIBRARY = "libc++"; MACOSX_DEPLOYMENT_TARGET = "14.0"; SDKROOT = "macosx"; SWIFT_VERSION = "5.0"; ARCHS = "$(ARCHS_STANDARD)"; ONLY_ACTIVE_ARCH = "NO"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; GCC_OPTIMIZATION_LEVEL = "0"; DEBUG_INFORMATION_FORMAT = "dwarf"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG"; }; name = Debug; };
+  B93A403068256F32054009BD = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; CLANG_ENABLE_OBJC_ARC = "YES"; CLANG_CXX_LANGUAGE_STANDARD = "c++17"; CLANG_CXX_LIBRARY = "libc++"; MACOSX_DEPLOYMENT_TARGET = "14.0"; SDKROOT = "macosx"; SWIFT_VERSION = "5.0"; ARCHS = "$(ARCHS_STANDARD)"; ONLY_ACTIVE_ARCH = "NO"; SWIFT_OPTIMIZATION_LEVEL = "-O"; GCC_OPTIMIZATION_LEVEL = "3"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+  E276CF7B6F134C8097502278 = { isa = XCConfigurationList; buildConfigurations = (9B625CEA3F909C06FABDAEF6, B93A403068256F32054009BD,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+  FF3F5DFD0EACE814C9D10D97 = { isa = XCBuildConfiguration; buildSettings = { PRODUCT_NAME = "BeatMeat"; PRODUCT_BUNDLE_IDENTIFIER = "com.mpaudio.beatmeat"; INFOPLIST_FILE = "Info.plist"; GENERATE_INFOPLIST_FILE = "NO"; SWIFT_OBJC_BRIDGING_HEADER = "Sources/BeatMeat-Bridging-Header.h"; SUPPORTED_PLATFORMS = "macosx"; CODE_SIGN_STYLE = "Manual"; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = "NO"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_EMIT_LOC_STRINGS = "NO"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; GCC_OPTIMIZATION_LEVEL = "0"; DEBUG_INFORMATION_FORMAT = "dwarf"; SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG"; }; name = Debug; };
+  3D67849634E48A36B7B41C93 = { isa = XCBuildConfiguration; buildSettings = { PRODUCT_NAME = "BeatMeat"; PRODUCT_BUNDLE_IDENTIFIER = "com.mpaudio.beatmeat"; INFOPLIST_FILE = "Info.plist"; GENERATE_INFOPLIST_FILE = "NO"; SWIFT_OBJC_BRIDGING_HEADER = "Sources/BeatMeat-Bridging-Header.h"; SUPPORTED_PLATFORMS = "macosx"; CODE_SIGN_STYLE = "Manual"; CODE_SIGN_IDENTITY = "-"; ENABLE_APP_SANDBOX = "NO"; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks"; SWIFT_EMIT_LOC_STRINGS = "NO"; SWIFT_OPTIMIZATION_LEVEL = "-O"; GCC_OPTIMIZATION_LEVEL = "3"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; }; name = Release; };
+  0BD309E76B747245FDAD4E71 = { isa = XCConfigurationList; buildConfigurations = (FF3F5DFD0EACE814C9D10D97, 3D67849634E48A36B7B41C93,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+  74237E90C41AEA0B6FC2E50D = { isa = PBXNativeTarget; buildConfigurationList = 0BD309E76B747245FDAD4E71; buildPhases = (80E722596D977BF51841CACB, 800AEA107DFD24EC19D54F1E, B67EA722C09AFCE013BCA097,); buildRules = (); dependencies = (); name = BeatMeat; productName = BeatMeat; productReference = 3B8906B5B6BE212227E479E2; productType = "com.apple.product-type.application"; };
+  E23F07FBE5E2297851D1B096 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1600; TargetAttributes = { 74237E90C41AEA0B6FC2E50D = { CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = E276CF7B6F134C8097502278; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = 48A9EBDE4E429B0C80354279; productRefGroup = A4878AF32A9B10A5CA2D15E1; projectDirPath = ""; projectRoot = ""; targets = (74237E90C41AEA0B6FC2E50D,); };
+ };
+ rootObject = E23F07FBE5E2297851D1B096;
+}

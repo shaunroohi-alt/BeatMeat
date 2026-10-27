@@ -1,0 +1,1346 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "title": "Ableton Reference Manual Version 8",
+    "softwareVersion": "8.0.2",
+    "date": "May 2009",
+    "pageNumbering": "PDF pages include the cover and legal page; printed page = PDF page - 2 in these chapters"
+  },
+  "scope": "All top-level entries in chapters 21, 22 and 23, including separately licensed sample libraries. This is a reference catalog, not a list of available BeatMeat devices.",
+  "statusPolicy": "All entries start as not implemented. Basic independent BeatMeat gain/pan/mute, sine synthesis, low-pass and delay do not establish equivalence with named reference devices.",
+  "counts": {
+    "audioChapterEntries": 31,
+    "midiChapterEntries": 7,
+    "instrumentChapterEntries": 14,
+    "total": 52
+  },
+  "devices": [
+    {
+      "referenceName": "Auto Filter",
+      "section": "21.1",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 279,
+        "last": 281
+      },
+      "sourcePrintedPages": {
+        "first": 277,
+        "last": 279
+      },
+      "importantParameters": [
+        "type: low-pass/high-pass/band-pass/notch",
+        "frequency",
+        "Q/resonance",
+        "quantized beat modulation",
+        "envelope amount/attack/release",
+        "sidechain source/gain/blend",
+        "LFO waveform/rate/sync/amount/phase/spin"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Auto Pan",
+      "section": "21.2",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 281,
+        "last": 282
+      },
+      "sourcePrintedPages": {
+        "first": 279,
+        "last": 280
+      },
+      "importantParameters": [
+        "LFO shape",
+        "shape hardening/inversion",
+        "rate/sync",
+        "stereo phase",
+        "phase offset",
+        "amount"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Beat Repeat",
+      "section": "21.3",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 282,
+        "last": 284
+      },
+      "sourcePrintedPages": {
+        "first": 280,
+        "last": 282
+      },
+      "importantParameters": [
+        "interval",
+        "offset",
+        "chance",
+        "gate duration",
+        "manual repeat",
+        "grid/triplets",
+        "variation amount/mode",
+        "pitch/pitch decay",
+        "band filter",
+        "mix/insert/gate mode",
+        "output/decay"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Chorus",
+      "section": "21.4",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 284,
+        "last": 285
+      },
+      "sourcePrintedPages": {
+        "first": 282,
+        "last": 283
+      },
+      "importantParameters": [
+        "delay 1/time/high-pass",
+        "delay 2 off/fixed/modulated",
+        "linked times",
+        "modulation amount/rate/\u00d720",
+        "feedback/polarity",
+        "dry/wet",
+        "Crisp quality"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Compressor",
+      "section": "21.5",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 285,
+        "last": 290
+      },
+      "sourcePrintedPages": {
+        "first": 283,
+        "last": 288
+      },
+      "importantParameters": [
+        "threshold",
+        "ratio",
+        "knee",
+        "attack/release",
+        "lookahead 0/1/10 ms",
+        "peak/RMS/opto detector",
+        "FF1/FF2/FB model",
+        "makeup/output",
+        "sidechain source/gain/blend/EQ/audition"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Feedback disables lookahead and external sidechain; external sidechain disables automatic makeup. Sidechain detector routes are not audible program input.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Corpus",
+      "section": "21.6",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 291,
+        "last": 294
+      },
+      "sourcePrintedPages": {
+        "first": 289,
+        "last": 292
+      },
+      "importantParameters": [
+        "resonator model/quality",
+        "tune/transpose/fine/spread",
+        "MIDI frequency/last-low priority/off-decay",
+        "pitch bend range",
+        "LFO waveform/rate/sync/phase/spin",
+        "material/radius/decay/ratio/brightness/inharmonicity/opening",
+        "hit/listening positions",
+        "band filter/width/bleed",
+        "gain/dry-wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Model-specific controls; lowering dry/wet does not truncate existing resonances. Manual Tube end-condition conflicts with Collision description.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Dynamic Tube",
+      "section": "21.7",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 295,
+        "last": 296
+      },
+      "sourcePrintedPages": {
+        "first": 293,
+        "last": 294
+      },
+      "importantParameters": [
+        "tube A/B/C",
+        "drive",
+        "bias",
+        "tone",
+        "signed envelope amount",
+        "attack/release",
+        "output",
+        "high-quality mode"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "EQ Eight",
+      "section": "21.8",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 296,
+        "last": 297
+      },
+      "sourcePrintedPages": {
+        "first": 294,
+        "last": 295
+      },
+      "importantParameters": [
+        "eight independently enabled bands",
+        "stereo/LR/MS mode",
+        "active edit channel",
+        "filter type",
+        "frequency/gain/Q",
+        "output gain",
+        "scale",
+        "high-quality mode"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "EQ Three",
+      "section": "21.9",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 298,
+        "last": 299
+      },
+      "sourcePrintedPages": {
+        "first": 296,
+        "last": 297
+      },
+      "importantParameters": [
+        "low/mid/high gains and kills",
+        "low/high crossover",
+        "24/48 dB mode",
+        "per-band signal presence"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Erosion",
+      "section": "21.10",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 299,
+        "last": 299
+      },
+      "sourcePrintedPages": {
+        "first": 297,
+        "last": 297
+      },
+      "importantParameters": [
+        "sine/noise/wide-noise",
+        "modulation center frequency",
+        "amount",
+        "noise bandwidth"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "External Audio Effect",
+      "section": "21.11",
+      "category": "external_routing",
+      "sourcePdfPages": {
+        "first": 300,
+        "last": 301
+      },
+      "sourcePrintedPages": {
+        "first": 298,
+        "last": 299
+      },
+      "importantParameters": [
+        "hardware audio send/return ports",
+        "send/return gains and peak holds",
+        "dry/wet",
+        "return polarity",
+        "round-trip latency in samples/ms"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Filter Delay",
+      "section": "21.12",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 301,
+        "last": 302
+      },
+      "sourcePrintedPages": {
+        "first": 299,
+        "last": 300
+      },
+      "importantParameters": [
+        "three independent L/LR/R delay paths",
+        "per-path band filter",
+        "tempo/ms time and sync offset",
+        "feedback",
+        "output level/pan",
+        "dry level"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Flanger",
+      "section": "21.13",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 303,
+        "last": 304
+      },
+      "sourcePrintedPages": {
+        "first": 301,
+        "last": 302
+      },
+      "importantParameters": [
+        "delay time",
+        "feedback/polarity",
+        "signed envelope amount/attack/release",
+        "stereo LFO waveform/rate/sync/phase/spin",
+        "high-pass",
+        "dry/wet",
+        "high-quality mode"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Frequency Shifter",
+      "section": "21.14",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 304,
+        "last": 306
+      },
+      "sourcePrintedPages": {
+        "first": 302,
+        "last": 304
+      },
+      "importantParameters": [
+        "shift/ring mode",
+        "coarse/fine Hz",
+        "spread/wide",
+        "ring-mode drive",
+        "stereo LFO waveform/rate/sync/phase/spin",
+        "dry-wet or pre-drive mix"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Gate",
+      "section": "21.15",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 307,
+        "last": 308
+      },
+      "sourcePrintedPages": {
+        "first": 305,
+        "last": 306
+      },
+      "importantParameters": [
+        "threshold",
+        "closed attenuation",
+        "flip",
+        "attack/hold/release",
+        "sidechain source/gain/blend"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Grain Delay",
+      "section": "21.16",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 308,
+        "last": 310
+      },
+      "sourcePrintedPages": {
+        "first": 306,
+        "last": 308
+      },
+      "importantParameters": [
+        "delay sync/time/offset",
+        "grain frequency",
+        "pitch",
+        "random pitch",
+        "spray",
+        "feedback",
+        "dry/wet",
+        "XY parameter assignments"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Limiter",
+      "section": "21.17",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 310,
+        "last": 311
+      },
+      "sourcePrintedPages": {
+        "first": 308,
+        "last": 309
+      },
+      "importantParameters": [
+        "input gain",
+        "ceiling",
+        "stereo-linked/independent-LR",
+        "lookahead",
+        "release/auto-release",
+        "gain-reduction measurement"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "A later gain device or a master fader above unity invalidates the output ceiling guarantee.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Looper",
+      "section": "21.18",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 311,
+        "last": 316
+      },
+      "sourcePrintedPages": {
+        "first": 309,
+        "last": 314
+      },
+      "importantParameters": [
+        "record/play/overdub/stop/clear",
+        "undo/redo",
+        "multi-purpose gesture transport",
+        "launch quantization",
+        "tempo-control mode",
+        "record length/next state",
+        "song-control mode",
+        "double/halve buffer",
+        "speed/reverse",
+        "overdub feedback",
+        "input monitoring mode",
+        "buffer import/export"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Requires a transport/gesture/quantization state machine and undoable overdub layers, not only a feedback delay.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Multiband Dynamics",
+      "section": "21.19",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 316,
+        "last": 321
+      },
+      "sourcePrintedPages": {
+        "first": 314,
+        "last": 319
+      },
+      "importantParameters": [
+        "low/high crossovers and enabled bands",
+        "per-band active/solo",
+        "pre/post band gains",
+        "above/below thresholds and ratios",
+        "per-band attack/release",
+        "soft knee",
+        "RMS/peak",
+        "global time",
+        "amount",
+        "output gain"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Overdrive",
+      "section": "21.20",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 322,
+        "last": 322
+      },
+      "sourcePrintedPages": {
+        "first": 320,
+        "last": 320
+      },
+      "importantParameters": [
+        "input band-pass frequency/width",
+        "drive",
+        "tone",
+        "dynamics",
+        "dry/wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Phaser",
+      "section": "21.21",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 323,
+        "last": 324
+      },
+      "sourcePrintedPages": {
+        "first": 321,
+        "last": 322
+      },
+      "importantParameters": [
+        "poles",
+        "frequency",
+        "feedback",
+        "Earth/Space spacing",
+        "color",
+        "signed envelope amount/attack/release",
+        "stereo LFO waveform/rate/sync/phase/spin",
+        "dry/wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Ping Pong Delay",
+      "section": "21.22",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 324,
+        "last": 325
+      },
+      "sourcePrintedPages": {
+        "first": 322,
+        "last": 323
+      },
+      "importantParameters": [
+        "tempo/ms time",
+        "band-pass frequency/width",
+        "feedback",
+        "freeze",
+        "dry/wet",
+        "repitch/fade/jump transitions"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Redux",
+      "section": "21.23",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 326,
+        "last": 327
+      },
+      "sourcePrintedPages": {
+        "first": 324,
+        "last": 325
+      },
+      "importantParameters": [
+        "downsample factor",
+        "soft/hard mode",
+        "bit depth and enable",
+        "overload indication"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Resonators",
+      "section": "21.24",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 327,
+        "last": 328
+      },
+      "sourcePrintedPages": {
+        "first": 325,
+        "last": 326
+      },
+      "importantParameters": [
+        "input filter mode/frequency",
+        "root note/fine",
+        "decay/constant-decay",
+        "resonance A/B",
+        "color",
+        "five enables/gains",
+        "relative resonator pitches/detunes",
+        "wet width",
+        "dry/wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Reverb",
+      "section": "21.25",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 328,
+        "last": 330
+      },
+      "sourcePrintedPages": {
+        "first": 326,
+        "last": 328
+      },
+      "importantParameters": [
+        "input cuts",
+        "predelay",
+        "early-reflection shape/spin",
+        "quality",
+        "size",
+        "stereo image",
+        "late decay and shelves",
+        "freeze/cut/flat",
+        "echo density/scale",
+        "diffusion chorus",
+        "reflection/diffuse levels",
+        "dry/wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Saturator",
+      "section": "21.26",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 331,
+        "last": 332
+      },
+      "sourcePrintedPages": {
+        "first": 329,
+        "last": 330
+      },
+      "importantParameters": [
+        "drive",
+        "curve type",
+        "custom drive/lin/curve/damp/depth/period",
+        "input DC filter",
+        "color/base/frequency/width/depth",
+        "output",
+        "final soft clip",
+        "dry/wet",
+        "high-quality mode"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Simple Delay",
+      "section": "21.27",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 333,
+        "last": 334
+      },
+      "sourcePrintedPages": {
+        "first": 331,
+        "last": 332
+      },
+      "importantParameters": [
+        "independent L/R time and tempo sync",
+        "per-channel feedback",
+        "dry/wet",
+        "repitch/fade/jump transitions"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Spectrum",
+      "section": "21.28",
+      "category": "analyzer",
+      "sourcePdfPages": {
+        "first": 334,
+        "last": 335
+      },
+      "sourcePrintedPages": {
+        "first": 332,
+        "last": 333
+      },
+      "importantParameters": [
+        "FFT block size",
+        "analysis channel",
+        "refresh",
+        "block averaging",
+        "line/bins",
+        "linear/log/semitone axis",
+        "range/auto",
+        "peak hold",
+        "expanded display"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Analysis-only; must not alter the audio stream.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Utility",
+      "section": "21.29",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 336,
+        "last": 336
+      },
+      "sourcePrintedPages": {
+        "first": 334,
+        "last": 334
+      },
+      "importantParameters": [
+        "mute",
+        "gain \u00b135 dB",
+        "left/right/stereo input mode",
+        "panorama",
+        "width 0\u2013200%",
+        "left/right polarity"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "In-chain mute may preserve downstream tails; channel mode Left/Right disables width.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Vinyl Distortion",
+      "section": "21.30",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 337,
+        "last": 338
+      },
+      "sourcePrintedPages": {
+        "first": 335,
+        "last": 336
+      },
+      "importantParameters": [
+        "tracing drive/frequency/Q",
+        "pinch drive/frequency/Q",
+        "overall drive",
+        "soft/hard mode",
+        "pinch stereo/mono",
+        "crackle density/volume"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Vocoder",
+      "section": "21.31",
+      "category": "audio_effect",
+      "sourcePdfPages": {
+        "first": 338,
+        "last": 341
+      },
+      "sourcePrintedPages": {
+        "first": 336,
+        "last": 339
+      },
+      "importantParameters": [
+        "carrier source",
+        "noise downsample/density",
+        "pitch-tracker bounds/waveform/tuning",
+        "external source",
+        "enhance",
+        "unvoiced level/sensitivity/fast-slow",
+        "bands/range/bandwidth/per-band levels",
+        "precise/retro",
+        "gate/depth/attack/release",
+        "mono/stereo/LR",
+        "formant",
+        "output/dry-wet"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Arpeggiator",
+      "section": "22.1",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 342,
+        "last": 346
+      },
+      "sourcePrintedPages": {
+        "first": 340,
+        "last": 344
+      },
+      "importantParameters": [
+        "style",
+        "random/random-other/random-once",
+        "rate/sync/free",
+        "gate",
+        "groove",
+        "hold",
+        "offset",
+        "repeats",
+        "off/note/beat retrigger",
+        "transpose mode/distance/steps",
+        "velocity target/decay/retrigger"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Chord",
+      "section": "22.2",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 346,
+        "last": 347
+      },
+      "sourcePrintedPages": {
+        "first": 344,
+        "last": 345
+      },
+      "importantParameters": [
+        "six pitch shifts \u00b136 semitones",
+        "per-shift relative velocity 1\u2013200%",
+        "duplicate-pitch suppression"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Note Length",
+      "section": "22.3",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 347,
+        "last": 348
+      },
+      "sourcePrintedPages": {
+        "first": 345,
+        "last": 346
+      },
+      "importantParameters": [
+        "note-on/note-off trigger",
+        "length ms/sync",
+        "gate",
+        "on-off velocity balance",
+        "velocity decay time",
+        "key scale"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Pitch",
+      "section": "22.4",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 348,
+        "last": 348
+      },
+      "sourcePrintedPages": {
+        "first": 346,
+        "last": 346
+      },
+      "importantParameters": [
+        "transpose \u00b1128 semitones",
+        "lowest input note",
+        "input range"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Range filtering happens before transposition; excluded notes are rejected.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Random",
+      "section": "22.5",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 349,
+        "last": 350
+      },
+      "sourcePrintedPages": {
+        "first": 347,
+        "last": 348
+      },
+      "importantParameters": [
+        "chance",
+        "choices 1\u201324",
+        "scale",
+        "add/subtract/both sign",
+        "random/alternating mode"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Scale",
+      "section": "22.6",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 350,
+        "last": 351
+      },
+      "sourcePrintedPages": {
+        "first": 348,
+        "last": 349
+      },
+      "importantParameters": [
+        "12\u00d712 pitch-class mapping",
+        "base",
+        "lowest input note",
+        "mapped range"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Notes outside mapped range pass unchanged; deleted pitch-class mappings reject matching notes.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Velocity",
+      "section": "22.7",
+      "category": "midi_effect",
+      "sourcePdfPages": {
+        "first": 351,
+        "last": 352
+      },
+      "sourcePrintedPages": {
+        "first": 349,
+        "last": 350
+      },
+      "importantParameters": [
+        "note-on/note-off/both operation",
+        "input lowest/range",
+        "output low/high",
+        "clip/gate/fixed mode",
+        "random",
+        "drive",
+        "compand"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Analog",
+      "section": "23.1",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 353,
+        "last": 364
+      },
+      "sourcePrintedPages": {
+        "first": 351,
+        "last": 362
+      },
+      "importantParameters": [
+        "two oscillator waves/levels/tuning/sub-sync/pulse widths",
+        "noise level/color",
+        "two filters/routes/slave/drive",
+        "two amplifier gains/pans",
+        "four ADSR envelopes/loops/free/legato",
+        "two LFOs",
+        "vibrato",
+        "unison",
+        "glide",
+        "polyphony/priority",
+        "stretch/error/tuning/bend"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Collision",
+      "section": "23.2",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 365,
+        "last": 376
+      },
+      "sourcePrintedPages": {
+        "first": 363,
+        "last": 374
+      },
+      "importantParameters": [
+        "mallet stiffness/noise/color/level",
+        "filtered noise ADSR",
+        "two resonator models/tuning/physical properties/mixers",
+        "series/parallel structure",
+        "resonator link/copy",
+        "two LFOs/two targets each",
+        "MIDI controller mappings",
+        "voice count/retrigger",
+        "output"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Source text describes Tube closed at both ends whereas Corpus describes it open; exact physical model is not uniquely specified.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Drum Machines",
+      "section": "23.3",
+      "category": "sample_library",
+      "sourcePdfPages": {
+        "first": 376,
+        "last": 377
+      },
+      "sourcePrintedPages": {
+        "first": 374,
+        "last": 375
+      },
+      "importantParameters": [
+        "sample-library presets",
+        "Drum Rack pads",
+        "macro mappings",
+        "associated MIDI Live Clips"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "assetAvailability": "Audio samples and presets are not supplied by the PDF; a separately licensed library or original replacement content is required."
+    },
+    {
+      "referenceName": "Electric",
+      "section": "23.4",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 377,
+        "last": 381
+      },
+      "sourcePrintedPages": {
+        "first": 375,
+        "last": 379
+      },
+      "importantParameters": [
+        "mallet stiffness/force/impact noise",
+        "tine/tone decay/level/color",
+        "fork release",
+        "damper tone/level/attack-release balance",
+        "pickup R/W/input/output/symmetry/distance",
+        "polyphony/tuning/stretch/bend",
+        "output"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "External Instrument",
+      "section": "23.5",
+      "category": "external_routing",
+      "sourcePdfPages": {
+        "first": 381,
+        "last": 383
+      },
+      "sourcePrintedPages": {
+        "first": 379,
+        "last": 381
+      },
+      "importantParameters": [
+        "MIDI target/port/channel",
+        "audio return source",
+        "return gain",
+        "latency ms/samples"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Impulse",
+      "section": "23.6",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 383,
+        "last": 386
+      },
+      "sourcePrintedPages": {
+        "first": 381,
+        "last": 384
+      },
+      "importantParameters": [
+        "eight sample slots",
+        "slot load/audition/mute/solo/choke",
+        "start offset",
+        "tune/random/velocity",
+        "stretch mode/amount/velocity",
+        "filter mode/frequency/resonance",
+        "saturation/drive",
+        "trigger/gate decay",
+        "slot pan/level/modulations",
+        "global time/pitch/level",
+        "individual outputs"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Per-slot parameters are captured at note-on; later automation does not continuously alter active voices.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Latin Percussion",
+      "section": "23.7",
+      "category": "sample_library",
+      "sourcePdfPages": {
+        "first": 386,
+        "last": 388
+      },
+      "sourcePrintedPages": {
+        "first": 384,
+        "last": 386
+      },
+      "importantParameters": [
+        "licensed kit/instrument-group samples",
+        "multi-articulation Drum Racks",
+        "tuning/room/envelope macros",
+        "associated MIDI sets"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "assetAvailability": "Audio samples and presets are not supplied by the PDF; a separately licensed library or original replacement content is required."
+    },
+    {
+      "referenceName": "Operator",
+      "section": "23.8",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 388,
+        "last": 409
+      },
+      "sourcePrintedPages": {
+        "first": 386,
+        "last": 407
+      },
+      "importantParameters": [
+        "four oscillator waves/partials/fixed-ratio tuning/phase/feedback",
+        "eleven FM algorithms",
+        "seven envelopes/loops/beat-sync",
+        "14-type filter/shaper",
+        "audio-rate LFO",
+        "modulation matrix",
+        "polyphony/retrigger",
+        "interpolation/antialias/tone",
+        "glide/spread/transpose",
+        "pitch-bend/key/velocity/aftertouch/mod-wheel mappings"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Includes the full parameter-list continuation through PDF409; algorithms, anti-alias processing and legacy file compatibility need independent engineering.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Orchestral Strings, Brass, Woodwinds and Percussion",
+      "section": "23.9",
+      "category": "sample_library",
+      "sourcePdfPages": {
+        "first": 409,
+        "last": 410
+      },
+      "sourcePrintedPages": {
+        "first": 407,
+        "last": 408
+      },
+      "importantParameters": [
+        "licensed multisamples and articulations",
+        "solo/section Instrument Racks",
+        "Full/Lite/LE quality",
+        "articulation macro",
+        "hot-swap preserving macros"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "assetAvailability": "Audio samples and presets are not supplied by the PDF; a separately licensed library or original replacement content is required."
+    },
+    {
+      "referenceName": "Sampler",
+      "section": "23.10",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 411,
+        "last": 423
+      },
+      "sourcePrintedPages": {
+        "first": 409,
+        "last": 421
+      },
+      "importantParameters": [
+        "sample layers",
+        "key/velocity/sample-select zones and crossfades",
+        "root/tune/level/pan",
+        "sample start/end/reverse",
+        "sustain/release loop modes/crossfades/detune",
+        "interpolation/RAM mode",
+        "FM/AM modulation oscillator",
+        "pitch/filter/volume envelopes",
+        "polyphonic filter/shaper order",
+        "three LFOs",
+        "MIDI controller mapping",
+        "32-voice limit/retrigger"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Sample selector chooses layers only at trigger time; it does not switch an active voice. External file references can become missing media.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Session Drums",
+      "section": "23.11",
+      "category": "sample_library",
+      "sourcePdfPages": {
+        "first": 424,
+        "last": 426
+      },
+      "sourcePrintedPages": {
+        "first": 422,
+        "last": 424
+      },
+      "importantParameters": [
+        "licensed stereo/multimic drum samples",
+        "Full/LE versions",
+        "Drum Rack kit/pad presets",
+        "snare-bottom/overhead/room return levels",
+        "hihat pedal/velocity sensitivity macros",
+        "round-robin MIDI processing",
+        "associated MIDI clips"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "assetAvailability": "Audio samples and presets are not supplied by the PDF; a separately licensed library or original replacement content is required."
+    },
+    {
+      "referenceName": "Simpler",
+      "section": "23.12",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 427,
+        "last": 431
+      },
+      "sourcePrintedPages": {
+        "first": 425,
+        "last": 429
+      },
+      "importantParameters": [
+        "single sample/region",
+        "start/length/loop",
+        "zero-cross snap/crossfade",
+        "three ADSR envelopes",
+        "filter mode/frequency/resonance/modulation",
+        "per-voice LFO",
+        "glide/portamento/spread",
+        "transpose/bend",
+        "polyphony/voice stealing",
+        "pan/velocity/level"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "behaviorNotes": "Zero-cross snapping uses the left channel; stereo loops may still need crossfading. Spread is sampled at note-on.",
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "Tension",
+      "section": "23.13",
+      "category": "instrument",
+      "sourcePdfPages": {
+        "first": 432,
+        "last": 446
+      },
+      "sourcePrintedPages": {
+        "first": 430,
+        "last": 444
+      },
+      "importantParameters": [
+        "bow/hammer/bouncing-hammer/plectrum excitation",
+        "string decay/damping/inharmonicity",
+        "vibrato",
+        "damper properties/position/gating",
+        "termination finger/fret properties",
+        "pickup position",
+        "body type/size/cuts/decay/mix",
+        "filter/envelope/LFO",
+        "polyphony/priority",
+        "tuning/stretch/error/bend",
+        "unison/portamento",
+        "output"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "algorithmAvailability": "The manual describes behavior and controls but does not supply the original implementation."
+    },
+    {
+      "referenceName": "The Essential Instrument Collection",
+      "section": "23.14",
+      "category": "sample_library",
+      "sourcePdfPages": {
+        "first": 446,
+        "last": 447
+      },
+      "sourcePrintedPages": {
+        "first": 444,
+        "last": 445
+      },
+      "importantParameters": [
+        "licensed instrument multisamples",
+        "Full/Lite/LE quality",
+        "Instrument Rack presets",
+        "macro mappings",
+        "24-bit/16-bit library variants"
+      ],
+      "implementationStatus": "not implemented",
+      "equivalenceClaim": false,
+      "assetAvailability": "Audio samples and presets are not supplied by the PDF; a separately licensed library or original replacement content is required."
+    }
+  ]
+}

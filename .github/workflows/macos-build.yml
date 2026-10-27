@@ -1,0 +1,41 @@
+name: BeatMeat macOS build and validation
+on:
+  workflow_dispatch:
+  push:
+    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
+  pull_request:
+    paths: ['Sources/**', 'Tests/**', 'scripts/**', 'Info.plist', 'Resources/**', '.github/workflows/macos-build.yml']
+permissions:
+  contents: read
+jobs:
+  portable-dsp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run DSP and transport regression suite
+        run: bash scripts/test-dsp.sh
+  macos:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, validate and package universal macOS application
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p .build
+          bash scripts/package.sh 2>&1 | tee .build/package.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BeatMeat-macOS-development
+          path: |
+            dist/BeatMeat-macOS.zip
+            dist/BeatMeat-macOS.dmg
+            .build/validation/
+      - name: Preserve build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: BeatMeat-build-diagnostics
+          path: .build/*.log
+          if-no-files-found: ignore
